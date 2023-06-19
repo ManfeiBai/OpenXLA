@@ -112,9 +112,13 @@ def xla_cc_test(
                    ],
                ) +
                if_cuda_is_configured([
-                   clean_dep("//xla/stream_executor/cuda:cuda_stream"),
-                   clean_dep("//xla/stream_executor/cuda:all_runtime"),
-                   clean_dep("//xla/stream_executor/cuda:stream_executor_cuda"),
+                   clean_dep("//xla/stream_executor/gpu:gpu_init"),
+                   clean_dep("//xla/service:gpu_plugin"),
+                   clean_dep("//xla/stream_executor:stream_executor_bundle"),
+                   clean_dep("//xla/stream_executor:stream_executor_headers"),
+                   clean_dep("//xla/stream_executor/gpu:gpu_stream"),
+                   clean_dep("//xla/stream_executor/platform"),
+                   clean_dep("//xla/stream_executor:cuda_platform"),
                ]) +
                if_rocm_is_configured([
                    clean_dep("//xla/stream_executor/gpu:gpu_stream"),
