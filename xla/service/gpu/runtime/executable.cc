@@ -371,6 +371,7 @@ Status GpuRuntimeExecutable::Execute(
       graph_instances_(executor)->snapshot();
   CapturedFunctionExecutionCount::Snapshot execution_count =
       captured_function_counts_(executor)->snapshot();
+  CapturingCudaGraph capturing_cuda_graph(false);
 #endif  // GOOGLE_CUDA
 
   // Kernels in concurrent regions should be launched on borrowed stream, so
