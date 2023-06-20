@@ -113,7 +113,6 @@ def xla_cc_test(
                ) +
                if_cuda_is_configured([
                    clean_dep("//xla/stream_executor/gpu:gpu_init"),
-                   clean_dep("//xla/service:gpu_plugin"),
                    clean_dep("//xla/stream_executor:stream_executor_bundle"),
                    clean_dep("//xla/stream_executor:stream_executor_headers"),
                    clean_dep("//xla/stream_executor/gpu:gpu_stream"),
